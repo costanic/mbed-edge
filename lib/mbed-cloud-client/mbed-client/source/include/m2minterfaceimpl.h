@@ -308,6 +308,12 @@ public:
      */
     virtual void resume(void *iface, const M2MBaseList &list);
 
+#if MBED_CLOUD_CLIENT_NETWORK_PROXY == 1
+    /**
+     */
+    virtual void set_proxy(const char *proxy);
+#endif
+
 protected: // From M2MNsdlObserver
 
     virtual void coap_message_ready(uint8_t *data_ptr,

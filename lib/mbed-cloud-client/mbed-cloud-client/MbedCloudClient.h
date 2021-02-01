@@ -555,6 +555,12 @@ public:
     void est_free_cert_chain_context(cert_chain_context_s *context) const;
 #endif // !MBED_CLIENT_DISABLE_EST_FEATURE
 
+#if MBED_CLOUD_CLIENT_NETWORK_PROXY == 1
+    /**
+     */
+    void set_proxy(const char *proxy);
+#endif
+
 protected: // from ServiceClientCallback
 
     /**
@@ -602,6 +608,9 @@ private:
     FP1<void,int>                                   _on_error;
     const char                                      *_error_description;
     bool                                            _init_done;
+#if MBED_CLOUD_CLIENT_NETWORK_PROXY == 1
+    const char                                      *_proxy;
+#endif
 
 #if MBED_CLOUD_CLIENT_STL_API
     // This API and functionality is being phased out, as it is wasting resources by

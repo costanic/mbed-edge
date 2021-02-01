@@ -371,6 +371,12 @@ public:
      *  register to the LWM2M server.
      */
     virtual void resume(void *iface, const M2MBaseList &object_list) = 0;
+
+#if MBED_CLOUD_CLIENT_NETWORK_PROXY == 1
+    /**
+     */
+    virtual void set_proxy(const char *proxy) = 0;
+#endif
 };
 
 #endif // M2M_INTERFACE_H

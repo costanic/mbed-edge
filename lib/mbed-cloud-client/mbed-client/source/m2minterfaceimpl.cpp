@@ -1523,3 +1523,10 @@ void M2MInterfaceImpl::create_random_initial_reconnection_time()
 
     }
 }
+
+#if MBED_CLOUD_CLIENT_NETWORK_PROXY == 1
+void M2MInterfaceImpl::set_proxy(const char *proxy)
+{
+    _connection_handler.set_proxy(proxy);
+}
+#endif
