@@ -107,10 +107,10 @@ public:
     void set_proxy(const char *proxy)
     {
 	int c;
-	String proxy_address;
+	static String proxy_address;
 	uint16_t proxy_port;
-	String proxy_auth_type;
-	String proxy_creds;
+	static String proxy_auth_type;
+	static String proxy_creds;
 
 	if (NULL == proxy) {
 	    tr_debug("EdgeClientImpl::set_proxy: no address configured");
